@@ -1,0 +1,55 @@
+<link rel="import" href="../bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../bower_components/iron-localstorage/iron-localstorage.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="notepad-column">
+  <style>
+    div iron-autogrow-textarea {
+      width: 90%;
+      margin: 10px;
+      border: none
+    }
+    div paper-material {
+      margin: 10px;
+    }
+    h2 {
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+      font-weight: 100;
+    }
+    paper-button.blue {
+      color: #4285f4;
+    }
+    paper-button[raised].blue {
+      background: #4285f4;
+      color: #fff;
+    }
+  </style>
+  <template is="dom-bind">
+    <div class="vertical-section">
+      <h2>Notes</h2>
+      <paper-material elevation="2">
+        <iron-autogrow-textarea max-rows="20" bind-value="{{text}}" id="a1" ></iron-autogrow-textarea>
+      </paper-material>
+      <iron-localstorage name="my-app-storage"
+        value="{{text}}"
+        on-iron-localstorage-load-empty="initializeEmpty"
+        autoSaveDisabled="true"
+      ></iron-localstorage>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: "notepad-column",
+      properties: {
+        text: {
+          type: String
+        }
+      },
+      initializeEmpty: function() {
+        this.text = "";
+      }
+    });
+  </script>
+</dom-module>
