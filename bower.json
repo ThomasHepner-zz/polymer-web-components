@@ -1,0 +1,23 @@
+{
+  "name": "web-components-2",
+  "authors": [
+    "Thomas Hepner <thepner1@uc.cl>"
+  ],
+  "description": "",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0"
+  }
+}
